@@ -32,7 +32,30 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
+            List<Vehicle> listofvehicles = new List<Vehicle>();
 
+            Vehicle moto1 = new Motorcycle(){Make = "Yamazaki", Model = "Zizi", Year = "2001", };
+            Motorcycle moto2 = new Motorcycle(){Make = "Harley", Model ="Davidson XXL", Year = "2001"};
+            Vehicle car1 = new Car(){Make = "Lambo", Model = "Urus", Year = "2023"};
+            Car car2 = new Car();//Not setting the properties here so that the base default props. in the vehicle class will dispaly 
+
+//Adding the objects to the list
+            listofvehicles.Add(moto1);
+            listofvehicles.Add(moto2);
+            listofvehicles.Add(car1);
+            listofvehicles.Add(car2);
+
+            //Displaying the props. using a foreach loop
+            foreach(Vehicle vehicle in listofvehicles)
+            {
+                Console.WriteLine($"{vehicle.Make}, {vehicle.Year}, {vehicle.Model}");
+            }
+
+
+                moto1.DriveAbstract();
+                moto1.DriveVirtual();
+                car1.DriveAbstract();
+                car1.DriveVirtual();
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * 
@@ -45,27 +68,7 @@ namespace ConsoleUI
              */
 
             // Call each of the drive methods for one car and one motorcycle
-                List<Vehicle> vehicles = new List<Vehicle>();
-                Vehicle vehc1 = new Car(){Year = "2001", Make = " Honda", Model = "Civic"};
-                Vehicle vehc2 = new Motorcycle();
-                Car car = new Car(){Year = "1997", Make = "Toyota", Model = "Prius", Has4Doors = "Has 3 doors", Has4Wheels = "Has 4 wheels"};
-                Motorcycle motorcycle = new Motorcycle(){Year = "2005", Make = "Yazuka", Model = "Machimi", Has2Wheels = "Has 2 wheels", HasNoDoors = "Doesnt have doors"};
-            vehicles.Add(vehc1);
-            vehicles.Add(vehc2);
-            vehicles.Add(car);
-            vehicles.Add(motorcycle);
-            foreach ( var item in vehicles)
-            {
-                Console.WriteLine($"{item.Year}, {item.Model}, {item.Make}");
-            }
-            Console.WriteLine("*****************");
-            car.DriveAbstract();
-            Console.WriteLine("*********");
-            car.DriveVirtual();
-            Console.WriteLine("*************");
-            motorcycle.DriveAbstract();
-            Console.WriteLine("***********");
-            motorcycle.DriveVirtual();
+
             #endregion            
             Console.ReadLine();
         }
